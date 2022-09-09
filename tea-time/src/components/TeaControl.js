@@ -1,36 +1,35 @@
 import React from 'react';
-import NewTicketForm from './NewTicketForm';
-import TicketList from './TicketList';
-import TicketDetail from './TicketDetail';
-import EditTicketForm from './EditTicketForm';
+import NewTeaForm from './NewTeaForm';
+import TeaList from './TeaList';
+import TeaDetail from './TeaDetails';
 
-class TicketControl extends React.Component {
+class TeaControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainTicketList: [],
-      selectedTicket: null
+      mainTeaList: [],
+      selectedTea: null
     };
   }
 
-  handleChangingSelectedTicket = (id) => {
-    const selectedTicket = this.state.mainTicketList.filter(ticket => ticket.id === id)[0];
-    this.setState({selectedTicket: selectedTicket});
+  handleChangingSelectedTea = (id) => {
+    const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
+    this.setState({selectedTea: selectedTea});
   }
 
-  handleAddingNewTicketToList = (newTicket) => {
-    const newMainTicketList = this.state.mainTicketList.concat(newTicket);
-    this.setState({mainTicketList: newMainTicketList,
+  handleAddingNewTeaToList = (newTea) => {
+    const newMainTeaList = this.state.mainTeaList.concat(newTea);
+    this.setState({mainTeaList: newMainTeaList,
                   formVisibleOnPage: false });
   }
 
   handleClick = () => {
-  if (this.state.selectedTicket != null) {
+  if (this.state.selectedTea != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTicket: null,
+        selectedTea: null,
         editing: false
     });
   } else {
@@ -43,16 +42,16 @@ class TicketControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedTicket != null) {
-      currentlyVisibleState = <TicketDetail ticket = {this.state.selectedTicket} />
-      buttonText = "Return to Ticket List";
+    if (this.state.selectedTea != null) {
+      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} />
+      buttonText = "Return to Tea List";
     } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewTicketForm onNewTicketCreation={this.handleAddingNewTicketToList} />
-      buttonText = "Return to Ticket List";
+      currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList} />
+      buttonText = "Return to Tea List";
     } else {
-      currentlyVisibleState = <TicketList ticketList={this.state.mainTicketList}
-      onTicketSelection={this.handleChangingSelectedTicket} />;
-      buttonText = "Add Ticket";
+      currentlyVisibleState = <TeaList teaList={this.state.mainTeaList}
+      onTeaSelection={this.handleChangingSelectedTea} />;
+      buttonText = "Add Tea";
     }
     return (
       <React.Fragment>
@@ -64,4 +63,4 @@ class TicketControl extends React.Component {
 
 }
 
-export default TicketControl;
+export default TeaControl;

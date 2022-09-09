@@ -15,7 +15,7 @@ function Tea(props){
   );
 }
 
-Ticket.propTypes = {
+Tea.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   quantity: PropTypes.string,
