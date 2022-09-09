@@ -10,7 +10,6 @@ function NewTeaForm(props){
       name: event.target.name.value, 
       price: event.target.price.value, 
       quantity: event.target.quantity.value,
-      status: event.target.status.value, 
       id: v4()
     });
   }
@@ -30,10 +29,6 @@ function NewTeaForm(props){
           type='text'
           name='quantity'
           placeholder='Quantity' />
-        <input
-          type='text'
-          name='status'
-          placeholder='Status' />
         <button type='submit'>Add</button>
       </form>
     </React.Fragment>

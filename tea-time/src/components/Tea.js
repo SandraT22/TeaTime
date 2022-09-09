@@ -8,7 +8,6 @@ function Tea(props){
         <h3>{props.name}</h3>
         <p><em>{props.price}</em></p>
         <p>{props.quantity}</p>
-        <p>{props.status}</p>
         <hr/>
       </div>
     </React.Fragment>
@@ -18,8 +17,7 @@ function Tea(props){
 Tea.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  quantity: PropTypes.string,
-  status: PropTypes.string.isRequired,
+  quantity: PropTypes.string.isRequired,
   id: PropTypes.string, 
   whenTicketClicked: PropTypes.func
 };

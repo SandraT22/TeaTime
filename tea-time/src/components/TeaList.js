@@ -12,7 +12,6 @@ function TeaList(props){
           name={tea.name}
           price={tea.price}
           quantity={tea.quantity}
-          status={tea.status}
           id={tea.id}  
           key={tea.id}/> 
       )}
