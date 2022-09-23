@@ -54,19 +54,19 @@ class TeaControl extends React.Component {
   }
 }
 
-handleIncrement = (id) => {
-  const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
-  if (selectedTea.qantity > 0) {
-    let updatedTea = selectedTea.quantity += 1;
-    const newMainTeaList = this.state.mainTeaList;
-    this.setState({
-      selectedTea: updatedTea
-    })
+// handleIncrement = (id) => {
+//   const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
+//   if (selectedTea.qantity > 0) {
+//     let updatedTea = selectedTea.quantity += 1;
+//     const newMainTeaList = this.state.mainTeaList;
+//     this.setState({
+//       selectedTea: updatedTea
+//     })
 
-  } else {
-    selectedTea.quantity;
-  }
-}
+//   } else {
+//     selectedTea.quantity;
+//   }
+// }
 
   render(){
     let currentlyVisibleState = null;
@@ -79,7 +79,8 @@ handleIncrement = (id) => {
       buttonText = 'Return to Tea List';
     } else {
       currentlyVisibleState = <TeaList teaList={this.state.mainTeaList}
-      onTeaSelection={this.handleChangingSelectedTea} onClickingIncrement={this.handleIncrement} />;
+      onTeaSelection={this.handleChangingSelectedTea} />;
+      // onClickingIncrement={this.handleIncrement}
       buttonText = "Add Tea";
     }
     return (
