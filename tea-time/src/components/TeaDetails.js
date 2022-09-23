@@ -11,8 +11,8 @@ function TeaDetail(props){
         <h3>{tea.name}</h3>
         <p><em>Price: {tea.price}</em></p>
         <p>Quantity Available: {tea.quantity}</p>
-        <button onClick={()=> onClickingDelete(tea.id) }>Close Tea</button>
-        <button onClick={ props.onClickingEdit }>Update Ticket</button>
+        <button onClick={()=> onClickingDelete(tea.id) }>Delete Tea</button>
+        <button onClick={ props.onClickingEdit }>Update Tea</button>
         <hr/>
       </React.Fragment>
     );

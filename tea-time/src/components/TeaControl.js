@@ -2,6 +2,7 @@ import React from 'react';
 import NewTeaForm from './NewTeaForm';
 import TeaList from './TeaList';
 import TeaDetail from './TeaDetails';
+import Button from 'react-bootstrap/Button';
 
 class TeaControl extends React.Component {
 
@@ -57,7 +58,7 @@ handleIncrement = (id) => {
   const selectedTea = this.state.mainTeaList.filter(tea => tea.id === id)[0];
   if (selectedTea.qantity > 0) {
     let updatedTea = selectedTea.quantity += 1;
-    const newMain
+    const newMainTeaList = this.state.mainTeaList;
     this.setState({
       selectedTea: updatedTea
     })
@@ -72,19 +73,19 @@ handleIncrement = (id) => {
     let buttonText = null;
     if (this.state.selectedTea != null) {
       currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTicket} />
-      buttonText = "Return to Tea List";
+      buttonText = 'Return to Tea List';
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList} />
-      buttonText = "Return to Tea List";
+      buttonText = 'Return to Tea List';
     } else {
       currentlyVisibleState = <TeaList teaList={this.state.mainTeaList}
-      onTeaSelection={this.handleChangingSelectedTea} />;
+      onTeaSelection={this.handleChangingSelectedTea} onClickingIncrement={this.handleIncrement} />;
       buttonText = "Add Tea";
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <Button variant="outline-warning" onClick={this.handleClick}>{buttonText}</Button>
       </React.Fragment>
     );
   }

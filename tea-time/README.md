@@ -1,17 +1,15 @@
-#Tea Time
+# Tea Time
 
 #### By Sandra Tena
 
 ## Technologies Used
 
 *_React_
-* _C#_
 * _.NET_
 * _HTML_
 * _CSS_
-* _SQL Workbench_
-* _Entity Framework_
-*_Swashbuckle.AspNetCore_
+*_Node_
+*_javaScript_
 
 ## A simple wepsite that allows the user to create an entry for tea inventory, view all entries as a list and click each entry to see its details or to see if it is available or not available. 
 
